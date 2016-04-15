@@ -3,17 +3,17 @@
 <?php
 /**
  * .git/hooks/pre-commit
- * 
+ *
  * This pre-commit hooks will check for PHP error (lint), and make sure the code
  * is PSR compliant.
- * 
+ *
  * Dependecy: PHP-CS-Fixer (https://github.com/fabpot/PHP-CS-Fixer)
  * To use, copy this file into your .git/hooks folder in your git repo
  * make sure to add execute permissions using: chmod +x .git/hooks/pre-commit-phpcs
- * 
+ *
  * @authors  Mardix  http://github.com/mardix, Donovan Tengblad http://github.com/purplefish32
  * @since   Sept 4 2012
- * 
+ *
  */
 
 /**
@@ -23,7 +23,7 @@
 exec('git diff --cached --name-status --diff-filter=ACM', $output);
 
 foreach ($output as $file) {
-    
+
     $fileName = trim(substr($file, 1) );
 
     /**
@@ -38,18 +38,18 @@ foreach ($output as $file) {
         exec("php -l " . escapeshellarg($fileName), $lint_output, $return);
 
         if ($return == 0) {
- 
+
         /**
          * PHP-CS-Fixer && add it back
          */
-          exec("php-cs-fixer fix {$fileName} --level=all; git add {$fileName}");
+          exec("php-cs-fixer fix {$fileName}; git add {$fileName}");
 
         } else {
-            
-           echo implode("\n", $lint_output), "\n"; 
-           
+
+           echo implode("\n", $lint_output), "\n";
+
            exit(1);
-           
+
         }
 
     }
