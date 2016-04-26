@@ -42,7 +42,7 @@ foreach ($output as $file) {
         /**
          * PHP-CS-Fixer && add it back
          */
-          exec("php-cs-fixer fix {$fileName} --level=all; git add {$fileName}");
+          exec("php-cs-fixer fix {$fileName} --level=symfony; git add {$fileName}");
 
         } else {
             
