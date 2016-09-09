@@ -1,3 +1,7 @@
+# !!! DEPRECATED !!!
+**Git hooks are now bundled with the [claroline distribution](http://claroline/Distribution). For installation instructions, see https://github.com/claroline/Distribution/pull/739#issue-162425926.** 
+
+
 # A collection of Git Hooks for Claroline Connect
 
 pre-commit : One pre-commit to rule them all.
